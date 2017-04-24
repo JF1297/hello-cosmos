@@ -2,74 +2,79 @@
 
 useful terminal commands
 
-display current os with version:
-uname -rs
+* display current os with version:
+`uname -rs`
 
-useful docker commands
+* useful docker commands
 
-docker --version
+`docker --version`
 
 webserver:
-docker run -d -p 80:80 --name webserver nginx
+`docker run -d -p 80:80 --name webserver nginx`
 view html from server at: http://localhost/
 (not necessary to append :80 to URL since default HTTP port specified
 Nginx is a very high performant web server / (reverse)-proxy) / light-weight / capable of handling unlimited? requests
 
 
-see details for containers:
-docker ps
+* view current running containers:
+`docker ps`
 
-stop <container name>
-docker stop <container name>
+* stop <container name>
+`docker stop <container name>`
 
-start container
-docker start <container name>
+* start container
+`docker start <container name>`
 
-see all stopped and currently running containers:
-docker ps -a
+* see all stopped and currently running containers:
+`docker ps -a`
 
-to stop and remove a running container with a single command:
-docker rm -f <container name>
+* to stop and remove a running container with a single command:
+`docker rm -f <container name>`
 
-list all local docker images:
-docker images
+*list all local docker images:
+`docker images`
 
-remover docker image:
-docker rmi <image name>
+* remover docker image:
+`docker rmi <image name>`
 
--d = run in detached mode
--p 4000:80 = expose port 80 of container, which is now mapped to port 4000 for your macbook; you can view this at http://localhost:4000
-i.e. docker run -d -p 4000:80 friendlyhello
+* run in detached mode
+`-d `
 
-store your images in docker cloud (forman):  all individual users can create one private repository for free and unlimited public repositories
+* expose port 80 of container, which is now mapped to port 4000 for your macbook
+`-p 4000:80`
+* you can view this at http://localhost:4000
+
+* full example
+`$ docker run -d -p 4000:80 friendlyhello`
 
 
-running anaconda:
-$ docker run -i -t continuumio/anaconda3 /bin/bash
-$ docker run -i -t continuumio/miniconda3 /bin/bash
+
+*running anaconda:
+`$ docker run -i -t continuumio/anaconda3 /bin/bash`
+`$ docker run -i -t continuumio/miniconda3 /bin/bash`
 
 
- start a Jupyter Notebook server with Anaconda from a Docker image:
- $ docker run -i -t -p 8888:8888 continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"
+ * start a Jupyter Notebook server with Anaconda from a Docker image:
+ `$ docker run -i -t -p 8888:8888 continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"`
  
- you can view above jupyter notebook here:
- http://localhost:8888
+ *you can view above jupyter notebook here:
+ `http://localhost:8888`
  Once you are inside of the running notebook, you can import libraries from Anaconda, perform interactive computations and visualize your data.
  
  
- running just python:
- $ docker run --rm -it python:3.5 bash
- type <$python> to go into REPL (Read Evaluate Print Loop)
+ * running just python:
+ `$ docker run --rm -it python:3.5 bash`
+ * type <$python> to go into REPL (Read Evaluate Print Loop)
  
- Python commands:
- Print("Hello World")
- print("There are %s planets" % 9)
- print("There are %s planets, plus %s" % (8, "pluto"))
- phrase = input("Enter a phrase: ")
+ # Python commands:
+ `print("Hello World")`
+ `print("There are %s planets" % 9)`
+ `print("There are %s planets, plus %s" % (8, "pluto"))`
+ `phrase = input("Enter a phrase: ")`
 
- mixed_list = [1, 'a', 2.5, True]
+ `mixed_list = [1, 'a', 2.5, True]`
  
-  my_list = [1, 2, 3, 4]
+ `my_list = [1, 2, 3, 4]`
  my_list[0] # this would output --> 1
  my_list[1:3] # Includes index 1, up to, but not including index 3; so output ---> [2, 3]
  my_list[:3] # From the beginning up to index 3; so output ---> [1, 2, 3]
@@ -97,6 +102,7 @@ $ docker run -i -t continuumio/miniconda3 /bin/bash
  
  
  
+store your images in docker cloud (forman):  all individual users can create one private repository for free and unlimited public repositories
 
 	
 from: https://news.ycombinator.com/item?id=8470206 :
