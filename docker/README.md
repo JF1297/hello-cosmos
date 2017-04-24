@@ -67,9 +67,9 @@ Nginx is a very high performant web server / (reverse)-proxy) / light-weight / c
  * type <$python> to go into REPL (Read Evaluate Print Loop)
  
  # Python commands:
- `print("Hello World")`
- `print("There are %s planets" % 9)`
- `print("There are %s planets, plus %s" % (8, "pluto"))`
+* `print("Hello World")`
+* `print("There are %s planets" % 9)`
+* `print("There are %s planets, plus %s" % (8, "pluto"))`
  `phrase = input("Enter a phrase: ")`
 
  `mixed_list = [1, 'a', 2.5, True]`
