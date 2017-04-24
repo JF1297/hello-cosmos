@@ -1,4 +1,10 @@
 
+
+useful terminal commands
+
+display current os with version:
+uname -rs
+
 useful docker commands
 
 docker --version
@@ -37,6 +43,60 @@ i.e. docker run -d -p 4000:80 friendlyhello
 
 store your images in docker cloud (forman):  all individual users can create one private repository for free and unlimited public repositories
 
+
+running anaconda:
+$ docker run -i -t continuumio/anaconda3 /bin/bash
+$ docker run -i -t continuumio/miniconda3 /bin/bash
+
+
+ start a Jupyter Notebook server with Anaconda from a Docker image:
+ $ docker run -i -t -p 8888:8888 continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && mkdir /opt/notebooks && /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser"
+ 
+ you can view above jupyter notebook here:
+ http://localhost:8888
+ Once you are inside of the running notebook, you can import libraries from Anaconda, perform interactive computations and visualize your data.
+ 
+ 
+ running just python:
+ $ docker run --rm -it python:3.5 bash
+ type <$python> to go into REPL (Read Evaluate Print Loop)
+ 
+ Python commands:
+ Print("Hello World")
+ print("There are %s planets" % 9)
+ print("There are %s planets, plus %s" % (8, "pluto"))
+ phrase = input("Enter a phrase: ")
+
+ mixed_list = [1, 'a', 2.5, True]
+ 
+  my_list = [1, 2, 3, 4]
+ my_list[0] # this would output --> 1
+ my_list[1:3] # Includes index 1, up to, but not including index 3; so output ---> [2, 3]
+ my_list[:3] # From the beginning up to index 3; so output ---> [1, 2, 3]
+ my_list[2:] # From index 2 to the end (including the end); so output ---> [3, 4, 5]
+ my_list[::2] # From beginning to end, every other item; so output ---> [1, 3, 5]
+ my_list.append(6) # so list is now ---> [1, 2, 3, 4, 5, 6]
+ len(my_list) # Get the length of the list; so output ---> 7
+ my_list   ['a', 'b', 'c'] # append muliplitple items; so list is now ---> [1, 2, 3, 4, 5, 6, 'a', 'b', 'c']
+ starting over so my_list = [1, 2, 3]
+ my_list[0] = 'a' # Replacing a single value, at index 0; so list is now ---> [a, 2, 3]
+ my_list[1:] = ['b', 'c'] # Replacing a slice; so list is now ---> [a, b, c]
+ my_list[:] = [1] # replace all of list's contents; so list is now ---> [1]
+ starting over so my_list = [1, 2, 3]
+ my_list.pop() # Removes the last item in the list; so list is now ---> [1 , 2]
+ my_list.pop(0) # Given an argument removes item(s) at the given indexes; so list is now ---> [2]
+
+
+ running a python file:
+ $ python planets.py
+ 
+ 
+ comment: I want to run notebooks and interact with data outside of the docker container. I add the -v option and this allows my to use docker this way.  I set the docker container to point to my local directory titled Code and created a folder within the docker container where it would be visible. My command string is: 
+ $ docker run -i -t -p 8888:8888 -v /Users/rajivshah/Code/:/opt/Code continuumio/anaconda3 /bin/bash -c "/opt/conda/bin/conda install jupyter -y --quiet && /opt/conda/bin/jupyter notebook --notebook-dir=/opt --ip='*' --port=8888 --no-browser"  
+ 
+ 
+ 
+ 
 
 	
 from: https://news.ycombinator.com/item?id=8470206 :
