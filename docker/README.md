@@ -19,6 +19,10 @@ Nginx is a very high performant web server / (reverse)-proxy) / light-weight / c
 * view current running containers:
 `docker ps`
 
+
+* view docker container stats with names showing instead of IDs
+`docker stats $(docker ps | awk '{if(NR>1) print $NF}')`
+
 * stop <container name>
 `docker stop <container name>`
 
